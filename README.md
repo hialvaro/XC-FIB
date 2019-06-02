@@ -1,8 +1,8 @@
 # XC - Primer Parcial
 
-##<u>TEMA 1- INTRODUCCIÓ</u>
+## <u>TEMA 1- INTRODUCCIÓ</u>
 
-##Model OSI de ISO
+## Model OSI de ISO
 
 Divideix el conjunt de protocols que formen part d'una xarxa de computadors en 7 nivells; cada un independent dels altrs i amb funcions específiques.
 
@@ -23,7 +23,7 @@ Cada nivell estableix un diàleg al corresponent amb les línies discontínues.
 - Nivell 6 - **Presentació**: La seva funció és proporcionar protocols de presentació de dades (ASCI, MPEG, etc.)
 - Nivell 7 - **Aplicació**: Són els protocols de les aplicacions que fan servir la xarxa. Per exemple: http, smtp, ftp, telnet, etc.
 
-###Arquitectura TCP/IP
+### Arquitectura TCP/IP
 
 L'arquitectura, o nivells, en què estan organitzats els protocols d'internet sol estar presentat com a la següent figura:
 
@@ -31,7 +31,7 @@ L'arquitectura, o nivells, en què estan organitzats els protocols d'internet so
 
 És a dir, el nivell d'aplicació engloba els nivells 5, 6 i 7 del model OSI. Els **protocols més importants** d'Internet es corresponen amb el nivell de **xarxa: el *Internet Protocol* (IP)** i el nivell de **transport: El *Transmission Control Protocol* (TCP)**. Per ser més exactes, pel que fa al **transort hi ha dos protocols**: **TCP,** que implementa una transmissió fiable ( assegura una transmissio lliure d'errors), i el ***User Datagram Protocol* (UDP)**, que no assegura el lliurament correcte de l'informació. Per sota del nivell IP, hi ha una "interfície de xarxa" que depèn de la xarxa física on es connecta cada dispositiu. En l'argot d'Internet, els **nodes terminals s'anomenen *hosts* i els nodes intermedis *routers*.**
 
-###Encapslament de l'informació
+### Encapslament de l'informació
 
 En la transmissió d'informació a través de la xarxa, **cada nivell afegeix una capçalera amb l'infromació necessària per a comunicar-se amb el nivell parell**. Cada nivell afegeix una capçalera abans de passar la PDU al nivell inferior i **elimina la capçalera aband de passar la PDU al nivell superior**. Aquest procés s'anomena **encapsulament**:
 
