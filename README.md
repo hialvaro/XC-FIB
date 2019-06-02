@@ -10,7 +10,7 @@ Els **nodes terminals** representen els dos sistemes que es comuniquen a través
 
 Cada nivell estableix un diàleg al corresponent amb les línies discontínues.
 
-![](C:\Users\Alvaro\Desktop\ResumX\Osi.PNG)
+![](/img/Osi.PNG)
 
 - Nivell 1 - **Físic**: Defineix les característiques físiques i elèctriques d'un dispositiu de xarxa. Per exemple, l'estàndard RS-232 és un estàndard de nivell físic. Aquest estàndard especifica el protocol que fa servir el port sèrie d'un PC (voltatges, velocitats de transmissió, com s'envien els bits per la línia de transmissió, tipus de connector i pins, etc.) En aquest nivell només es parla de bits o caràcters.
 - Nivell 2 - **Enllaç** *(Data link)*: Fa d'interfície entre el nivell de xarxa i el físic. Les PDUs que utilitza s'anomenen "trames" *(frames)*. Entre les seves funcions hi pot haver:
@@ -27,7 +27,7 @@ Cada nivell estableix un diàleg al corresponent amb les línies discontínues.
 
 L'arquitectura, o nivells, en què estan organitzats els protocols d'internet sol estar presentat com a la següent figura:
 
-![](C:\Users\Alvaro\Desktop\ResumX\arquitecturatcpip.png)
+![](/img/arquitecturatcpip.png)
 
 És a dir, el nivell d'aplicació engloba els nivells 5, 6 i 7 del model OSI. Els **protocols més importants** d'Internet es corresponen amb el nivell de **xarxa: el *Internet Protocol* (IP)** i el nivell de **transport: El *Transmission Control Protocol* (TCP)**. Per ser més exactes, pel que fa al **transort hi ha dos protocols**: **TCP,** que implementa una transmissió fiable ( assegura una transmissio lliure d'errors), i el ***User Datagram Protocol* (UDP)**, que no assegura el lliurament correcte de l'informació. Per sota del nivell IP, hi ha una "interfície de xarxa" que depèn de la xarxa física on es connecta cada dispositiu. En l'argot d'Internet, els **nodes terminals s'anomenen *hosts* i els nodes intermedis *routers*.**
 
@@ -35,7 +35,7 @@ L'arquitectura, o nivells, en què estan organitzats els protocols d'internet so
 
 En la transmissió d'informació a través de la xarxa, **cada nivell afegeix una capçalera amb l'infromació necessària per a comunicar-se amb el nivell parell**. Cada nivell afegeix una capçalera abans de passar la PDU al nivell inferior i **elimina la capçalera aband de passar la PDU al nivell superior**. Aquest procés s'anomena **encapsulament**:
 
-![](C:\Users\Alvaro\Desktop\ResumX\paradigmaclientservidor.png)
+![](/img/paradigmaclientservidor.png)
 
 ## Paradigma Client-Servidor
 
@@ -59,7 +59,7 @@ El protocol IP va ser dissenyat per tal de poder interconnectar xarxes heterogè
 
 Un router té dues o més "interfícies" connectades a xarxes diferents. Físicament, les interfícies estàn formades per targes de comunicacions (*Network Interface Card*, NIC) que permeten transmetre o rebre informació a través d'una xarxa física específica: una LAN o WAN.
 
-![](C:\Users\Alvaro\Desktop\ResumX\estructrouter.PNG)
+![](/img/estructrouter.PNG)
 
 
 
@@ -79,7 +79,7 @@ Característiques del protocol IP deduïbles:
 
 ### Capçalera IP-RFC 791 [19]
 
-![](C:\Users\Alvaro\Desktop\ResumX\capçaleradatagramaip.PNG)
+![](/img/capçaleradatagramaip.PNG)
 
 - *Version*: Versió del protocol: 4.
 - IHL: ***IP Header Length***, mida de la capçalera **en words de 32 bits** (Si no té opcions val 5, és a dir, té 5*4 = 20bytes).
@@ -94,7 +94,7 @@ Característiques del protocol IP deduïbles:
 - ***Protocol***: Multiplexació del protocol de nivell superior. Els números de protocol estan estandarditzats en el RFC 1700. En una màquina UNIX es poden consultar en el fitxer `/etc/protocols`
 - ***Header Checksum***: Permet la detecció d'errors. El checksum és només de la capçalera. L'algoristme de Checksum és el complement a 1 de la suma en complement a 1 de la informació a protegir. És a dir, pel càlcul del checksum es posen els bits del camp de checksum a la capçalera a 0, s'agrupen els bits de la capçalera en words de 16 bits, se sumen en complement a 1 i es fa el complement a 1 de la suma. La suma en complement a 1 consisteix en fer la suma en binari natural i tornar a sumar el possible excés que es pugui produïr. El complement a 1 consisteix en canviar els 1 per 0 i viceversa:
 
-![](C:\Users\Alvaro\Desktop\ResumX\checksum.PNG)
+![](/img/checksum.PNG)
 
 - ***Source Adress, Destination Adress***: adreça font i destinació del datagrama.
 - ***Options***: Pot portar 1 o més opcións. **Normalment no en porta cap**. Algunes de les definides són:
@@ -148,13 +148,13 @@ A més dels camps anterirors, IP també haurà de canviar convenient-ment el cam
 
 Tenen **32 bits** (4 bytes). La següent figura mostra el format d'una adreça IP.
 
-![Adreça IP](C:\Users\Alvaro\Desktop\ResumX\ipadr.PNG)
+![Adreça IP](/img/ipadr.PNG)
 
 ***Netid* identifica la xarxa i el *hostid* identifica un *host* dintre la xarxa**. El límit entre el netid i el hostid és variable. La notació que es fa servir es coneix com a *notació amb punts* i consisteix a expressar els **4 bytes de l'adreça en decimal separats per punts**, per exemple 147.83.34.25.
 
 Hi ha diferents classes de ip; la classe D és per adreces *multicast* (per exemple la 224.0.0.1 identifica "*All systems on this Subnet*") i la classe E són adreces reservades. Tipus d'adreces:
 
-![](C:\Users\Alvaro\Desktop\ResumX\tiupsips.PNG)
+![](/img/tiupsips.PNG)
 
 L'assignació d'aquestes adreces es fa tenint en compte que:
 
@@ -164,7 +164,7 @@ L'assignació d'aquestes adreces es fa tenint en compte que:
 
 No totes les adreces es poden fer servir per numerar les interfícies. A continuació veiem les adreces especials:
 
-![](C:\Users\Alvaro\Desktop\ResumX\ipsespecials.PNG)
+![](/img/ipsespecials.PNG)
 
 A continuació veiem un exemple d'assignació d'adreces, destaquem que:
 
@@ -172,7 +172,7 @@ A continuació veiem un exemple d'assignació d'adreces, destaquem que:
 - No es poden fer servir adreces especials per a numerar interfícies. Cada xarxa en té dues: la de la xarxa (amb el hostid tot a '0', que és la primera adreça disponible en el rang d'adreces de la xarxa) i la del broadcast en la xarxa (amb el hostid tot a '1', que és la ultima disponible en el rang d'adreces de la xarxa).
 - El router ha de tenir assignada una adreça en cada interfície. Cada adreça ha de tenir el netid de la xarxa on està connectada la interfície.
 
-![](C:\Users\Alvaro\Desktop\ResumX\assignadr.PNG)
+![](/img/assignadr.PNG)
 
 Les **adreces han de ser úniques en tot internet**. Per això, l'organisme IANA assigna blocs d'adreces als *Regional Internet Registers* (RIR): RIEPE (EUR), ARIN (USA), APNIC (ASIA), LACNIC (LATAM). A la vegada els RIR assignen blocs d'adreces als ISP i aquests als seus abonats. Aquestes adreces s'anomenen públiques, globals o registrades.
 
@@ -196,9 +196,9 @@ Les motivacións que porten la divisió d'una xarxa en subxarxes és *l'eficièn
 
 Suposem que una empresa contracta l'adreça de classe C 200.200.200.0/24 a l'ISP (l'adreça de partida per a fer subnetting l'anomenarem *adreça base*). Suposem que l'empresa vol tenir 4 subxarxes. Per aconseguir-ho, agafem 2 bits del hostid (2<sup>2</sup> = 4) per a fer el subnetting (aquests bits s'anomenen subnetid i han de ser els més significatius del hostid).
 
-![](C:\Users\Alvaro\Desktop\ResumX\subnettingres.PNG)
+![](/img/subnettingres.PNG)
 
 Els pesos dels bits del subnetid són 2<sup>7</sup> = 128 i 2<sup>6</sup> = 64. A la taula es fa servir B = 200.200.200. La columna d'adreces disponibles compte el nombre d'adreces que queden al descomptar les adreces especials (la de la xarxa i la de broadcast). Per saber quants *hosts* es podrien connectar en cada subxarxa també hauríem de descomptar les adreces que consumeixen els routers.
 
-![](C:\Users\Alvaro\Desktop\ResumX\divisoensubxarxes.PNG)
+![](/img/divisoensubxarxes.PNG)
 
